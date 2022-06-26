@@ -2,7 +2,9 @@ let hour = Number(prompt('Hour:'))
 let min = Number(prompt('Minute:'))
 let sec = Number(prompt('Second:'))
 
-if (sec >= 0 && sec <= 58) {
+if ((hour > 24) || (min > 59) || (sec > 59)) {
+    console.log('Try again!')
+} else if ((sec >= 0) && (sec <= 58)) {
     sec++
     console.log(`${hour}h ${min}min ${sec}s`)
 } else if (sec === 59) {
@@ -13,20 +15,13 @@ if (sec >= 0 && sec <= 58) {
         console.log(`${hour}h ${min}min ${sec}s`)
     } else if (min === 59) {
         // check for hour
+        min === 0
         if (hour >= 0 && hour <= 23) {
-            min = 0
             hour++
             console.log(`${hour}h ${min}min ${sec}s`)
         } else if (hour === 24) {
             hour = 0
-            min = 0
             console.log(`${hour}h ${min}min ${sec}s`)
-        } else {
-            console.log('Try again!')
-        }
-    } else {
-        console.log('Try again!')
+        } 
     }
-} else {
-    console.log('Try again!')
 }
